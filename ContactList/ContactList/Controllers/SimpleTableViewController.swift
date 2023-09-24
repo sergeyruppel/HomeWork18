@@ -19,14 +19,9 @@ class SimpleTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-//        self.tableView.isEditing = true
     }
 
     // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
     
     // Number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,10 +30,12 @@ class SimpleTableViewController: UITableViewController {
 
     // Configure the cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Name", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         let firstName = persons[indexPath.row].firstName
         let lastName = persons[indexPath.row].lastName
+        
         cell.textLabel?.text = "\(firstName) \(lastName)"
         return cell
     }
@@ -99,19 +96,15 @@ class SimpleTableViewController: UITableViewController {
     }
 
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     
-    
-    deinit {
-        print("DECONSTRUCT")
-    }
+//    override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
+//    if segue.identifier != "Detail" {
+//    return
+//    if let indexPath = tableview.indexPathForSelectedRow,
+//       let detailVC = segue.destination as? DetailsviewController {
+//        detailVC.
+//    }
 }

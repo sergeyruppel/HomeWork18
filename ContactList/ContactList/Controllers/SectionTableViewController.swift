@@ -18,25 +18,25 @@ class SectionTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     // MARK: - Table view data source
     
+    // Number of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
         return persons.count
     }
-    
+    // Number of rows
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
-    
+    // Configure the section
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let person = persons[section]
         let fullName = "\(person.firstName) \(person.lastName)"
         return fullName
     }
-    
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.textColor = .label
@@ -44,16 +44,20 @@ class SectionTableViewController: UITableViewController {
         header.textLabel?.frame = header.bounds
         header.textLabel?.textAlignment = .center
     }
-    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 32.0
     }
     
+    // Configure the cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Contact", for: indexPath)
         
-        let person = persons[indexPath.section]
-        cell.textLabel?.text = indexPath.row == 0 ? person.email : String(person.phoneNumber)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+                
+        if indexPath.row == 0 {
+            cell.textLabel?.text = persons[indexPath.section].email
+        } else {
+            cell.textLabel?.text = String(persons[indexPath.section].phoneNumber)
+        }
         return cell
     }
     

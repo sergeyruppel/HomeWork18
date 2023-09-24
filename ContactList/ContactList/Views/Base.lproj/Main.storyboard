@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wrz-5G-BFj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Wrz-5G-BFj">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="4068" y="-99"/>
         </scene>
-        <!--Simple Table View Controller-->
+        <!--Peoples-->
         <scene sceneID="d6E-55-PuC">
             <objects>
                 <tableViewController id="Rxh-ho-wqJ" customClass="SimpleTableViewController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +37,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Name" id="rrB-xa-Vc3">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="rrB-xa-Vc3">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rrB-xa-Vc3" id="Za7-Gm-kbj">
@@ -51,13 +51,13 @@
                             <outlet property="delegate" destination="Rxh-ho-wqJ" id="b0T-aY-hgS"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Nw0-0W-6IB"/>
+                    <navigationItem key="navigationItem" title="Peoples" id="Nw0-0W-6IB"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59L-Bc-WF7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5914" y="-444"/>
         </scene>
-        <!--Section Table View Controller-->
+        <!--Contacts-->
         <scene sceneID="XWA-iC-QoM">
             <objects>
                 <tableViewController id="k76-Kd-a7y" customClass="SectionTableViewController" customModule="ContactList" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Contact" id="YKk-lN-oqa">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="YKk-lN-oqa">
                                 <rect key="frame" x="20" y="55.333332061767578" width="353" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YKk-lN-oqa" id="N4U-jZ-mx3">
@@ -79,7 +79,7 @@
                             <outlet property="delegate" destination="k76-Kd-a7y" id="FZb-0b-7UC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="TZd-x3-qoc"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="TZd-x3-qoc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3P-Gz-ge9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
