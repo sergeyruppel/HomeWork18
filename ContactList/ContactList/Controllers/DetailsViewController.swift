@@ -8,9 +8,13 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
+    
+    var person: Person?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(person)
 
         // Do any additional setup after loading the view.
     }

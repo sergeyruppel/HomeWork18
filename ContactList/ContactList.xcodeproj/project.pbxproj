@@ -17,6 +17,7 @@
 		3A26AA632AB365C900DF9870 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A26AA612AB365C900DF9870 /* LaunchScreen.storyboard */; };
 		3A26AA6F2AB36D0D00DF9870 /* SimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26AA6E2AB36D0D00DF9870 /* SimpleTableViewController.swift */; };
 		3A26AA712AB36D2C00DF9870 /* SectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26AA702AB36D2C00DF9870 /* SectionTableViewController.swift */; };
+		3A5392AE2AC0A07C00BF4CCA /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5392AD2AC0A07C00BF4CCA /* DetailTableViewController.swift */; };
 		3AD5AE062AB96E3E00E4A4F8 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD5AE052AB96E3E00E4A4F8 /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		3A26AA642AB365C900DF9870 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A26AA6E2AB36D0D00DF9870 /* SimpleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
 		3A26AA702AB36D2C00DF9870 /* SectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTableViewController.swift; sourceTree = "<group>"; };
+		3A5392AD2AC0A07C00BF4CCA /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 		3AD5AE052AB96E3E00E4A4F8 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 				3A26AA6E2AB36D0D00DF9870 /* SimpleTableViewController.swift */,
 				3A26AA702AB36D2C00DF9870 /* SectionTableViewController.swift */,
 				3AD5AE052AB96E3E00E4A4F8 /* DetailsViewController.swift */,
+				3A5392AD2AC0A07C00BF4CCA /* DetailTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -196,6 +199,7 @@
 				3A1F33132AB89DF000F73876 /* Data.swift in Sources */,
 				3A1F33112AB88E2E00F73876 /* DataSource.swift in Sources */,
 				3A1F330E2AB878FF00F73876 /* Person.swift in Sources */,
+				3A5392AE2AC0A07C00BF4CCA /* DetailTableViewController.swift in Sources */,
 				3AD5AE062AB96E3E00E4A4F8 /* DetailsViewController.swift in Sources */,
 				3A26AA572AB365C800DF9870 /* AppDelegate.swift in Sources */,
 				3A26AA592AB365C800DF9870 /* SceneDelegate.swift in Sources */,
