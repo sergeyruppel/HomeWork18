@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Person {
+struct Person: Equatable {
     
-    let firstName: String
-    let lastName: String
-    let phoneNumber: Int
-    let email: String
+    var firstName: String
+    var lastName: String
+    var phoneNumber: Int
+    var email: String
     
     static func getPersons() -> [Person] {
         var persons: [Person] = []

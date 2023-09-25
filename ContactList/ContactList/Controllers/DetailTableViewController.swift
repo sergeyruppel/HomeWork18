@@ -19,6 +19,7 @@ class DetailTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+//        self.navigationItem.rightBarButtonItem?.title = "Edit"
     }
 
     // MARK: - Table view data source
@@ -49,6 +50,8 @@ class DetailTableViewController: UITableViewController {
         default:
             cell.textLabel?.text = ""
         }
+        
+        cell.selectionStyle = .none
 
         return cell
     }
@@ -98,5 +101,10 @@ class DetailTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ChangeDataViewController {
+            vc.person = self.person
+        }
+    }
 
 }
