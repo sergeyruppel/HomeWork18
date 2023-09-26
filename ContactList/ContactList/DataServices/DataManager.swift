@@ -14,5 +14,5 @@ class DataManager {
     private init() {}
     
     var persons = Person.getPersons()
-    
+ 
 }

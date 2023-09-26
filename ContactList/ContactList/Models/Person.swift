@@ -24,11 +24,11 @@ struct Person: Equatable {
             let person = Person(firstName: firstNames[item],
                                 lastName: lastNames[item],
                                 phoneNumber: Int.random(in: 7900000000...7999999999),
-                                email: "\(firstNames[item]).\(lastNames[item])@gmail.com".lowercased())
+                                email: "\(firstNames[item]).\(lastNames[item])@mail.com".lowercased())
             persons.append(person)
         }
         
         return persons
     }
-
+    
 }

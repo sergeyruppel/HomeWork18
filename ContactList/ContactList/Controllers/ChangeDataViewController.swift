@@ -7,74 +7,84 @@
 
 import UIKit
 
-class ChangeDataViewController: UIViewController, UITextFieldDelegate {
+final class ChangeDataViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var firstNameTF: UITextField!
-    @IBOutlet weak var lastNameTX: UITextField!
-    @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var phoneTF: UITextField!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet private weak var firstNameTextField: UITextField!
+    @IBOutlet private weak var lastNameTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var phoneNumberTextField: UITextField!
     
-    var person: Person?
-    var editedPerson: Person?
+    @IBOutlet private weak var saveButton: UIButton!
     
-    override func viewDidLoad() {
+    private var person: Person?
+    
+    var index: Int?
+    
+    override internal func viewDidLoad() {
         super.viewDidLoad()
         
-        firstNameTF.delegate = self
+        setupUI()
+    }
+    
+    @IBAction private func firstNameTextFieldAction(_ sender: UITextField) {
+        if let text = sender.text { person?.firstName = text }
+        checkChanges()
+    }
+    
+    @IBAction private func lastNameTextFieldAction(_ sender: UITextField) {
+        if let text = sender.text { person?.lastName = text }
+        checkChanges()
+    }
+    
+    @IBAction private func emailTextFieldAction(_ sender: UITextField) {
+        if let text = sender.text { person?.email = text }
+        checkChanges()
+    }
+    
+    @IBAction private func phoneNumberTextFieldAction(_ sender: UITextField) {
+        if let text = sender.text,
+           let phoneNumber = Int(text) {
+            person?.phoneNumber = phoneNumber
+        }
+        checkChanges()
+    }
+    
+    @IBAction private func saveButtonAction() {
+        if let index, let person = person {
+            DataManager.shared.persons[index] = person
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func checkChanges() {
+        if let index {
+            saveButton.isEnabled = person != DataManager.shared.persons[index]
+        }
+    }
+    
+    private func setupUI() {
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        emailTextField.delegate = self
+        phoneNumberTextField.delegate = self
         
-        firstNameTF.text = person?.firstName
-        lastNameTX.text = person?.lastName
-        emailTF.text = person?.email
+        guard let index = self.index else { return }
+        
+        person = DataManager.shared.persons[index]
+        
+        firstNameTextField.text = person?.firstName
+        lastNameTextField.text = person?.lastName
+        emailTextField.text = person?.email
         if let phoneNumber = person?.phoneNumber {
-            phoneTF.text = String(phoneNumber)
-        }
-        editedPerson = person
-        checkChanges()
-    
-    }
-
-    @IBAction func firstNameTFAction(_ sender: UITextField) {
-        if let text = sender.text {
-            person?.firstName = text
+            phoneNumberTextField.text = String(phoneNumber)
         }
         checkChanges()
     }
     
-    @IBAction func lastNameTFAction() {
-    }
-    
-    @IBAction func emailTFAction() {
-    }
-    
-    @IBAction func phoneNumberTFAction() {
-    }
-    
-    
-    
-    @IBAction func saveButtonAction() {
-    }
-    
-    func checkChanges() {
-
-        saveButton.isEnabled = person != editedPerson
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         print("return")
         return true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

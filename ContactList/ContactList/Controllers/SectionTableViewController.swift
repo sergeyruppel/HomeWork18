@@ -7,107 +7,61 @@
 
 import UIKit
 
-class SectionTableViewController: UITableViewController {
+final class SectionTableViewController: UITableViewController {
     
-    let persons = Person.getPersons()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//        self.navigationItem.rightBarButtonItem = self.editButtonItem
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
     
     // Number of sections
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return persons.count
+        return DataManager.shared.persons.count
     }
+    
     // Number of rows
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int {
         return 2
     }
+    
     // Configure the section
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let person = persons[section]
+    override func tableView(_ tableView: UITableView,
+                            titleForHeaderInSection section: Int) -> String? {
+        let person = DataManager.shared.persons[section]
         let fullName = "\(person.firstName) \(person.lastName)"
         return fullName
     }
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    
+    override func tableView(_ tableView: UITableView,
+                            willDisplayHeaderView view: UIView,
+                            forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.textColor = .label
         header.textLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         header.textLabel?.frame = header.bounds
         header.textLabel?.textAlignment = .center
     }
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    
+    override func tableView(_ tableView: UITableView,
+                            heightForHeaderInSection section: Int) -> CGFloat {
         return 32.0
     }
     
     // Configure the cell
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-                
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell",
+                                                 for: indexPath)
+
         if indexPath.row == 0 {
-            cell.textLabel?.text = persons[indexPath.section].email
+            cell.textLabel?.text = DataManager.shared.persons[indexPath.section].email
         } else {
-            cell.textLabel?.text = String(persons[indexPath.section].phoneNumber)
+            cell.textLabel?.text = String(DataManager.shared.persons[indexPath.section].phoneNumber)
         }
         return cell
     }
-    
-    
-    
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
 }
